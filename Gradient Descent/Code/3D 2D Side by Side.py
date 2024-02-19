@@ -54,7 +54,7 @@ ax2d.set_ylim(-3, 3)
 
 # Initialize paths and quivers for both plots
 points = np.array([[-1, -2], [2, 1.5], [0, 3], [1, -1.5], [2, 1]])
-paths = [gradient_descent_path(point, 0.1, 180) for point in points]
+paths = [gradient_descent_path(point, 0.05, 180) for point in points]
 quivers_3d = [ax3d.quiver(0, 0, 0, 0, 0, 0, length=0.4, arrow_length_ratio=0.5, color='red', normalize=True, linewidth = 1.5) for _ in paths]
 quivers_2d = [ax2d.quiver(0, 0, 0, 0, angles='xy', scale_units='xy', scale=1.25, color='red', headwidth=5, headlength=5, headaxislength=5) for _ in paths]
 path_histories = [deque(maxlen=10) for _ in paths]  # For fading trails in 2D plot
@@ -105,9 +105,9 @@ def update(frame):
 
 
 # Create the animation with blitting for better performance
-ani = animation.FuncAnimation(fig, update, frames=60, interval=5, blit=False, repeat=True)
+ani = animation.FuncAnimation(fig, update, frames=65, interval=5, blit=False, repeat=True)
 plt.show()
 
 # Uncomment this line to save the animation
-ani.save('/Users/rudrasondhi/Desktop/Animations/gradient_descent_side_by_side_animation.gif', writer='imagemagick', fps=20)  # Increased fps from 10 to 20
+ani.save('/Users/rudrasondhi/Desktop/Animations/Machine-Learning-Animations/Gradient Descent/Animations/gradient_descent_side_by_side_animation.gif', writer='imagemagick', fps=20)  # Increased fps from 10 to 20
 
