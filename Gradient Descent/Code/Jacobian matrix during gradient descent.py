@@ -42,13 +42,13 @@ X, Y = np.meshgrid(x, y)
 Z = func(X, Y)
 
 # Plot the surface
-ax.plot_surface(X, Y, Z, cmap='viridis', alpha=0.8)
+ax.plot_surface(X, Y, Z, cmap='viridis', alpha=0.5)
 
 
 
 def update(frame):
     ax.clear()
-    ax.plot_surface(X, Y, Z, cmap='viridis', alpha=0.8)
+    ax.plot_surface(X, Y, Z, cmap='viridis', alpha=0.5)
     x_pos, y_pos = path[frame]
     z_pos = func(x_pos, y_pos)  # Correct usage of func
 
@@ -66,11 +66,11 @@ def update(frame):
 
 # Initialize the animation
 def init():
-    ax.plot_surface(X, Y, Z, cmap='viridis', alpha=0.8)
+    ax.plot_surface(X, Y, Z, cmap='viridis', alpha=0.6)
     return fig,
 
 # Creating the animation
 ani = animation.FuncAnimation(fig, update, frames=len(path), init_func=init, repeat=True, interval = 100)
 
 plt.show()
-ani.save('/Users/rudrasondhi/Desktop/Animations/jacobian.gif', writer='imagemagick', fps=20)  # Increased fps from 10 to 20
+ani.save('/Users/rudrasondhi/Desktop/Animations/Machine-Learning-Animations/Gradient Descent/Animations/jacobian.gif', writer='imagemagick', fps=20)  # Increased fps from 10 to 20
